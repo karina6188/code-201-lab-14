@@ -48,9 +48,6 @@ function addSelectedItemToCart() {
   var x = document.getElementById('items').name;
   document.getElementsByTagName('option')[i].onchange = function() {(grabItem())};
 
-
-
-
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
 }
