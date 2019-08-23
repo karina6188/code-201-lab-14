@@ -5,36 +5,52 @@
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
 
+
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
+  var getProducts = localStorage.getItem('allProducts');
+  var backToArray = JSON.parse(getProducts);
+  console.log(backToArray);
 
   //TODO: Add an <option> tag inside the form's select for each product
   var selectElement = document.getElementById('items');
-  for (var i in Product.allProducts) {
-
+  for (var i = 0; i < backToArray.length; i++) {
+    var tag = document.createElement('option');
+    tag.textContent = backToArray[i].name;
+    tag.value = backToArray[i].name;
+    selectElement.appendChild(tag);
   }
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
 // object, save the whole thing back to local storage and update the screen
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
-
   // TODO: Prevent the page from reloading
+  event.preventDefault();
+
+  var grabButton = document.getElementsByTagName('input')[1];
+  grabButton.addEventListener('submit', allFunctions);
 
   // Do all the things ...
-  addSelectedItemToCart();
-  cart.saveToLocalStorage();
-  updateCounter();
-  updateCartPreview();
-
+  function allFunctions() {
+    addSelectedItemToCart();
+    cart.saveToLocalStorage();
+    updateCounter();
+    updateCartPreview();
+  }
 }
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
+  var x = document.getElementById('items').name;
+  document.getElementsByTagName('option')[i].onchange = function() {(grabItem())};
+
+
+
+
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
 }

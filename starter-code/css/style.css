@@ -1,1 +1,46 @@
 /* TODO: Make it awesome */
+h1 {
+  padding: 30px;
+  font-size: 2em;
+  background-color: rgb(19, 21, 161);
+  color: white;
+}
+
+nav > ul > li {
+  margin: 20px 30px;
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+main > section > div > header > h1{
+  font-size: 1.5em;
+}
+
+div > ol > li {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+legend {
+  margin: 30px;
+}
+
+span {
+  margin: 30px;
+}
+
+footer {
+  background-color: rgb(19, 21, 161);
+  color: white;
+  padding: 20px 30px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+#items {
+  background-color: rgb(224, 224, 224);
+  color: black;
+
+}

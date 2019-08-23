@@ -1,13 +1,21 @@
 'use strict';
 
+var items = [];
+var quantity = [];
+
+
 // Cart constructor.
-var Cart = function(items) {
+function Cart(url, product) {
   // this.items is an array of CartItem instances.
-  this.items = items;
-};
+  this.product = product;
+  this.url = url;
+  items.push(this);
+}
+
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+
 };
 
 Cart.prototype.saveToLocalStorage = function() {
@@ -24,13 +32,21 @@ var CartItem = function(product, quantity) {
   this.quantity = quantity;
 };
 
+
 // Product contructor.
 var Product = function(filePath, name) {
   this.filePath = filePath;
   this.name = name;
-  Product.allProducts.push(this);
+  allProducts.push(this);
 };
-Product.allProducts = [];
+
+var allProducts = [];
+
+var saveAllToLocalStorage = function() {
+  var allProductToString = JSON.stringify(allProducts);
+  localStorage.setItem('allProducts', allProductToString);
+};
+
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
@@ -57,3 +73,4 @@ function generateCatalog() {
 
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
+saveAllToLocalStorage();
